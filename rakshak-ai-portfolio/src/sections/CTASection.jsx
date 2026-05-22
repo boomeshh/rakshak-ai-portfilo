@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Mail, BookOpen } from 'lucide-react';
 import CyberGrid from '../components/CyberGrid';
 import ParticleSystem from '../components/ParticleSystem';
+import VideoModal from '../components/VideoModal';
 import { fadeInUp, staggerContainer } from '../animations/variants';
 
 const CTASection = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
   return (
     <section id="cta" className="relative py-32 px-4 md:px-8 lg:px-16 overflow-hidden">
       {/* Background layers */}
@@ -41,6 +44,7 @@ const CTASection = () => {
             variants={fadeInUp}
             whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(0,245,255,0.5)' }}
             className="flex items-center gap-2 px-8 py-4 rounded-xl bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 font-semibold hover:bg-cyan-500/30 transition-colors"
+            onClick={() => setVideoOpen(true)}
           >
             <Play size={18} />
             View Demo
@@ -67,6 +71,7 @@ const CTASection = () => {
           </motion.button>
         </motion.div>
       </div>
+      <VideoModal open={videoOpen} onClose={() => setVideoOpen(false)} />
     </section>
   );
 };

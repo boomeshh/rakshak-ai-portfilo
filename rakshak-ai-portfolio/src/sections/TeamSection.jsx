@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { Link, Code2, Star } from 'lucide-react';
-import { members, guide } from '../data/team';
-import GlassCard from '../components/GlassCard';
+import { Star } from 'lucide-react';
+import { members, guide, mentors } from '../data/team';
+import TeamCard from '../components/TeamCard';
 import { staggerContainer, fadeInUp } from '../animations/variants';
 
 const TeamSection = () => {
@@ -14,86 +14,81 @@ const TeamSection = () => {
         The talented individuals who built RAKSHAK AI for national cyber defence.
       </p>
 
+      {/* Team Members */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
       >
         {members.map((member) => (
-          <motion.div
+          <TeamCard
             key={member.id}
-            variants={fadeInUp}
-            whileHover={{ y: -4, boxShadow: '0 0 20px rgba(0,245,255,0.3)' }}
-          >
-            <GlassCard className="p-6 rounded-xl text-center">
-              <div
-                className="w-16 h-16 rounded-full mx-auto mb-4 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 border-2 border-cyan-400/50 flex items-center justify-center"
-                style={{ boxShadow: '0 0 15px rgba(0,245,255,0.3)' }}
-              >
-                <span className="text-cyan-400 text-xl font-bold">{member.name[0]}</span>
-              </div>
-              <h3 className="text-white font-semibold mb-1">{member.name}</h3>
-              <span className="inline-block px-2 py-1 rounded-full text-xs bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 mb-4">
-                {member.role}
-              </span>
-              <div className="flex justify-center gap-3">
-                <a
-                  href={member.linkedin}
-                  aria-label={`${member.name} LinkedIn`}
-                  className="text-gray-400 hover:text-cyan-400 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Link size={16} />
-                </a>
-                <a
-                  href={member.github}
-                  aria-label={`${member.name} GitHub`}
-                  className="text-gray-400 hover:text-cyan-400 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Code2 size={16} />
-                </a>
-              </div>
-            </GlassCard>
-          </motion.div>
+            name={member.name}
+            role={member.role}
+            image={member.image}
+            accent="cyan"
+            linkedin={member.linkedin}
+            github={member.github}
+          />
         ))}
       </motion.div>
 
-      <div className="flex justify-center">
+      {/* Project Guide */}
+      <div className="flex justify-center mb-10">
         <motion.div
-          whileHover={{ y: -4, boxShadow: '0 0 25px rgba(139,92,246,0.4)' }}
-          className="w-64"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="w-full max-w-xs"
         >
-          <GlassCard className="p-6 rounded-xl text-center border border-purple-500/30">
-            <Star size={24} className="text-purple-400 mx-auto mb-3" aria-hidden="true" />
-            <p className="text-purple-400 text-xs font-medium mb-2 uppercase tracking-widest">
-              Project Guide
-            </p>
-            <div className="w-16 h-16 rounded-full mx-auto mb-4 bg-gradient-to-br from-purple-500/30 to-blue-500/30 border-2 border-purple-400/50 flex items-center justify-center">
-              <span className="text-purple-400 text-xl font-bold">{guide.name[0]}</span>
-            </div>
-            <h3 className="text-white font-semibold mb-1">{guide.name}</h3>
-            <span className="inline-block px-2 py-1 rounded-full text-xs bg-purple-500/20 text-purple-400 border border-purple-500/30 mb-4">
-              {guide.role}
-            </span>
-            <div className="flex justify-center">
-              <a
-                href={guide.linkedin}
-                aria-label={`${guide.name} LinkedIn`}
-                className="text-gray-400 hover:text-purple-400 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Link size={16} />
-              </a>
-            </div>
-          </GlassCard>
+          <TeamCard
+            name={guide.name}
+            role={guide.role}
+            image={guide.image}
+            accent="purple"
+            linkedin={guide.linkedin}
+            badge="Project Guide"
+          />
         </motion.div>
       </div>
+
+      {/* Mentor / Leadership Divider */}
+      <div className="flex items-center gap-4 mb-10 max-w-2xl mx-auto">
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
+        <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10">
+          <Star size={14} className="text-cyan-400" />
+          <span className="text-cyan-400 text-xs font-semibold uppercase tracking-widest">
+            Mentor &amp; Leadership
+          </span>
+          <Star size={14} className="text-cyan-400" />
+        </div>
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
+      </div>
+
+      {/* Mentor Cards */}
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
+      >
+        {mentors.map((mentor) => (
+          <TeamCard
+            key={mentor.id}
+            name={mentor.name}
+            role={mentor.role}
+            organization={mentor.organization}
+            image={mentor.image}
+            accent={mentor.accent}
+            linkedin={mentor.linkedin}
+            badge="Mentor / Leadership"
+          />
+        ))}
+      </motion.div>
     </section>
   );
 };

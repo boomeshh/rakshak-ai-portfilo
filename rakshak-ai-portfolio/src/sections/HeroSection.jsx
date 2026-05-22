@@ -6,6 +6,7 @@
  * Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11
  */
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Target, Bell, ExternalLink, Code2, Play } from 'lucide-react';
 
@@ -13,6 +14,7 @@ import TypingAnimation from '../components/TypingAnimation';
 import CyberGrid from '../components/CyberGrid';
 import ParticleSystem from '../components/ParticleSystem';
 import HeroDashboardPreview from '../components/HeroDashboardPreview';
+import VideoModal from '../components/VideoModal';
 import { fadeInLeft, fadeInRight } from '../animations/variants';
 
 // ─── Floating stat cards data ────────────────────────────────────────────────
@@ -44,23 +46,28 @@ const ctaButtons = [
     icon: Play,
     className:
       'bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 px-6 py-3 rounded-lg flex items-center gap-2',
+    href: null,
   },
   {
     label: 'Explore Architecture',
     icon: ExternalLink,
     className:
       'bg-blue-500/20 border border-blue-500/50 text-blue-400 px-6 py-3 rounded-lg flex items-center gap-2',
+    href: null,
   },
   {
     label: 'GitHub Dataset',
     icon: Code2,
     className:
       'bg-purple-500/20 border border-purple-500/50 text-purple-400 px-6 py-3 rounded-lg flex items-center gap-2',
+    href: 'https://bit.ly/rakshak-ai-dataset',
   },
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────
 const HeroSection = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
+
   return (
     <section
       id="hero"
@@ -101,20 +108,31 @@ const HeroSection = () => {
 
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-4 mt-6">
-              {ctaButtons.map(({ label, icon: Icon, className }) => (
-                <motion.button
-                  key={label}
-                  className={className}
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0 0 20px rgba(0,245,255,0.4)',
-                  }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                >
-                  <Icon size={16} aria-hidden="true" />
-                  {label}
-                </motion.button>
-              ))}
+              {ctaButtons.map(({ label, icon: Icon, className, href }) => {
+                const props = {
+                  key: label,
+                  className,
+                  whileHover: { scale: 1.05, boxShadow: '0 0 20px rgba(0,245,255,0.4)' },
+                  transition: { type: 'spring', stiffness: 300, damping: 20 },
+                };
+                if (href) {
+                  return (
+                    <motion.a {...props} href={href} target="_blank" rel="noopener noreferrer">
+                      <Icon size={16} aria-hidden="true" />
+                      {label}
+                    </motion.a>
+                  );
+                }
+                return (
+                  <motion.button
+                    {...props}
+                    onClick={label === 'View Demo' ? () => setVideoOpen(true) : undefined}
+                  >
+                    <Icon size={16} aria-hidden="true" />
+                    {label}
+                  </motion.button>
+                );
+              })}
             </div>
           </motion.div>
 
@@ -148,6 +166,7 @@ const HeroSection = () => {
 
         </div>
       </div>
+      <VideoModal open={videoOpen} onClose={() => setVideoOpen(false)} />
     </section>
   );
 };
