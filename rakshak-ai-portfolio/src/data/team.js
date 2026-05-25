@@ -42,7 +42,8 @@ export const members = [
 
 export const guide = {
   name: 'Mr. Dilli Babu K',
-  role: 'Project Guide',
+  role: 'Assistant Professor, Department of CSE',
+  organization: 'Rathinam Technical Campus',
   linkedin: '#',
 };
 

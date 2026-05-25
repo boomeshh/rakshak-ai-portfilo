@@ -22,6 +22,7 @@ const NAV_LINKS = [
   { label: 'Analytics',   id: 'analytics' },
   { label: 'Impact',      id: 'impact' },
   { label: 'Team',        id: 'team' },
+  { label: 'Research',    id: 'research' },
   { label: 'Resources',   id: 'resources' },
   { label: 'Contact',     id: 'cta' },
 ];

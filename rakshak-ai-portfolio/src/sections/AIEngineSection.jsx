@@ -5,16 +5,19 @@
  * Requirements: 8.1, 8.2, 8.3, 8.4, 8.5, 8.6
  */
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Hash, TrendingUp, MessageSquare, GitBranch, Cpu } from 'lucide-react';
+import { Hash, TrendingUp, MessageSquare, GitBranch, Cpu, FileText } from 'lucide-react';
 import aiEngine from '../data/aiEngine';
 import GlassCard from '../components/GlassCard';
+import PdfModal from '../components/PdfModal';
 import { staggerContainer, fadeInUp } from '../animations/variants';
 import { drawLineTransition } from '../animations/transitions';
 
 const iconMap = { Hash, TrendingUp, MessageSquare, GitBranch, Cpu };
 
 export default function AIEngineSection() {
+  const [pdfOpen, setPdfOpen] = useState(false);
   const row1 = aiEngine.slice(0, 2);
   const row2 = aiEngine.slice(2, 4);
   const row3 = aiEngine.slice(4, 5);
@@ -26,6 +29,7 @@ export default function AIEngineSection() {
       </h2>
       <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
         Five specialized AI components working in concert to detect and classify cyber threats.
+        Research-backed Hybrid AI Threat Engine using TF-IDF, Logistic Regression, NLP Analysis &amp; Rule-Based Threat Intelligence.
       </p>
 
       <motion.div
@@ -124,6 +128,20 @@ export default function AIEngineSection() {
           </div>
         </div>
       </motion.div>
+
+      {/* View Technical Paper CTA */}
+      <div className="flex justify-center mt-10">
+        <motion.button
+          whileHover={{ scale: 1.05, boxShadow: '0 0 24px rgba(6,182,212,0.4)' }}
+          onClick={() => setPdfOpen(true)}
+          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 font-semibold hover:bg-cyan-500/30 transition-colors"
+        >
+          <FileText size={18} />
+          View Technical Paper
+        </motion.button>
+      </div>
+
+      <PdfModal open={pdfOpen} onClose={() => setPdfOpen(false)} />
     </section>
   );
 }

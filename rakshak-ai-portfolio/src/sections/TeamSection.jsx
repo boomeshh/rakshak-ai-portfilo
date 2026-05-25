@@ -47,10 +47,11 @@ const TeamSection = () => {
           <TeamCard
             name={guide.name}
             role={guide.role}
+            organization={guide.organization}
             image={guide.image}
             accent="purple"
             linkedin={guide.linkedin}
-            badge="Project Guide"
+            badge="Project Guide & Mentor"
           />
         </motion.div>
       </div>

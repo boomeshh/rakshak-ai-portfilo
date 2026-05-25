@@ -1,4 +1,4 @@
-﻿// Requirements: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7
+// Requirements: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -22,6 +22,7 @@ const modalVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.3, ease: 'easeOut' } },
   exit: { opacity: 0, scale: 0.88, transition: { duration: 0.2 } },
 };
+
 
 const ScreenshotCard = ({ item, onClick }) => (
   <motion.div
@@ -60,6 +61,7 @@ const ScreenshotCard = ({ item, onClick }) => (
     </div>
   </motion.div>
 );
+
 
 const ScreenshotModal = ({ items, index, onClose, onPrev, onNext }) => {
   const item = items[index];
@@ -125,6 +127,7 @@ const ScreenshotModal = ({ items, index, onClose, onPrev, onNext }) => {
   );
 };
 
+
 const ScreenshotsSection = () => {
   const [activeCategory, setActiveCategory] = useState(ALL);
   const [modalOpen, setModalOpen] = useState(false);
@@ -159,6 +162,7 @@ const ScreenshotsSection = () => {
   return (
     <section id="screenshots" className="py-24 px-4 md:px-8 lg:px-16 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -168,9 +172,11 @@ const ScreenshotsSection = () => {
       >
         <h2 className="text-3xl md:text-4xl font-bold cyber-text mb-4">Live Screenshots</h2>
         <p className="text-gray-400 max-w-2xl mx-auto">
-          Explore the RAKSHAK AI portal interface across every module.
+          Explore the RAKSHAK AI portal interface across every module — from threat dashboards to
+          complaint workflows and CERT analytics.
         </p>
       </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -192,6 +198,7 @@ const ScreenshotsSection = () => {
           </button>
         ))}
       </motion.div>
+
       <AnimatePresence mode="wait">
         <motion.div
           key={activeCategory}
@@ -205,9 +212,11 @@ const ScreenshotsSection = () => {
           ))}
         </motion.div>
       </AnimatePresence>
+
       {filtered.length === 0 && (
         <p className="text-center text-gray-500 mt-12">No screenshots in this category.</p>
       )}
+
       <AnimatePresence>
         {modalOpen && filtered[modalIndex] && (
           <ScreenshotModal

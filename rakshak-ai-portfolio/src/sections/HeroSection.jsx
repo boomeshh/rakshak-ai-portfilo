@@ -8,13 +8,14 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Target, Bell, ExternalLink, Code2, Play } from 'lucide-react';
+import { Zap, Target, Bell, ExternalLink, Code2, Play, FileText } from 'lucide-react';
 
 import TypingAnimation from '../components/TypingAnimation';
 import CyberGrid from '../components/CyberGrid';
 import ParticleSystem from '../components/ParticleSystem';
 import HeroDashboardPreview from '../components/HeroDashboardPreview';
 import VideoModal from '../components/VideoModal';
+import PdfModal from '../components/PdfModal';
 import { fadeInLeft, fadeInRight } from '../animations/variants';
 
 // ─── Floating stat cards data ────────────────────────────────────────────────
@@ -67,6 +68,7 @@ const ctaButtons = [
 // ─── Component ────────────────────────────────────────────────────────────────
 const HeroSection = () => {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [pdfOpen, setPdfOpen] = useState(false);
 
   return (
     <section
@@ -133,7 +135,20 @@ const HeroSection = () => {
                   </motion.button>
                 );
               })}
+              {/* Research Paper button */}
+              <motion.button
+                className="bg-blue-500/20 border border-blue-500/50 text-blue-400 px-6 py-3 rounded-lg flex items-center gap-2"
+                whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(59,130,246,0.4)' }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                onClick={() => setPdfOpen(true)}
+              >
+                <FileText size={16} aria-hidden="true" />
+                Research Paper
+              </motion.button>
             </div>
+            <p className="text-gray-500 text-xs mt-3">
+              📘 Presented at <span className="text-cyan-400/70 font-medium">YUDHISTRA 2026</span>
+            </p>
           </motion.div>
 
           {/* ── Right column ── */}
@@ -167,6 +182,7 @@ const HeroSection = () => {
         </div>
       </div>
       <VideoModal open={videoOpen} onClose={() => setVideoOpen(false)} />
+      <PdfModal open={pdfOpen} onClose={() => setPdfOpen(false)} />
     </section>
   );
 };
