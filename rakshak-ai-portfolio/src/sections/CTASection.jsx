@@ -51,14 +51,15 @@ const CTASection = () => {
           </motion.button>
 
           {/* Contact Team */}
-          <motion.button
+          <motion.a
+            href="mailto:boomesh.public@gmail.com"
             variants={fadeInUp}
             whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(0,245,255,0.5)' }}
             className="flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-500/20 border border-blue-500/50 text-blue-400 font-semibold hover:bg-blue-500/30 transition-colors"
           >
             <Mail size={18} />
             Contact Team
-          </motion.button>
+          </motion.a>
 
           {/* Explore Research */}
           <motion.button

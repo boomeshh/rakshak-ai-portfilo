@@ -65,12 +65,6 @@ function App() {
       <footer className="py-8 text-center text-gray-500 text-sm border-t border-white/5">
         <p>© 2026 RAKSHAK AI — AI-Powered Defence Cyber Incident &amp; Safety Portal</p>
         <p className="mt-1 text-xs text-gray-600">
-          Contact:{' '}
-          <a href="mailto:boomesh.public@gmail.com" className="text-cyan-500/60 hover:text-cyan-400 transition-colors">
-            boomesh.public@gmail.com
-          </a>
-        </p>
-        <p className="mt-1 text-xs text-gray-600">
           📘 Official Research Presented at{' '}
           <span className="text-cyan-500/60 font-medium">YUDHISTRA 2026</span>
           {' '}·{' '}

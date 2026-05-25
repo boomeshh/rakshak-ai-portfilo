@@ -90,6 +90,19 @@ const TeamSection = () => {
           />
         ))}
       </motion.div>
+
+      {/* Contact */}
+      <div className="mt-12 text-center">
+        <p className="text-gray-400 text-sm">
+          Want to collaborate or get in touch?{' '}
+          <a
+            href="mailto:boomesh.public@gmail.com"
+            className="text-cyan-400 hover:text-cyan-300 transition-colors underline underline-offset-2"
+          >
+            boomesh.public@gmail.com
+          </a>
+        </p>
+      </div>
     </section>
   );
 };
