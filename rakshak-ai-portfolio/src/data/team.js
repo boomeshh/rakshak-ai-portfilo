@@ -59,7 +59,7 @@ export const mentors = [
   },
   {
     id: 'gajendran',
-    name: 'Er Gajendran Parthasarathi',
+    name: 'Er. Gajendran Parthasarathi',
     role: 'Head - School of Design and Innovation',
     organization: 'Rathinam Technical Campus',
     image: gajendranImg,

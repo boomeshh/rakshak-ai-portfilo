@@ -1,32 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .glass-card {
-    @apply backdrop-blur-md bg-white/5 border border-white/10;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
 
-  .neon-border {
-    @apply border border-cyan-400/50;
-    box-shadow: 0 0 10px rgba(0, 245, 255, 0.3), 0 0 20px rgba(0, 245, 255, 0.1);
-  }
-
-  .cyber-text {
-    @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
+  body {
+    @apply bg-white text-ink font-sans antialiased;
   }
 }
 
-@layer utilities {
-  .neon-glow-cyan {
-    box-shadow: 0 0 10px rgba(0, 245, 255, 0.5), 0 0 20px rgba(0, 245, 255, 0.3), 0 0 40px rgba(0, 245, 255, 0.1);
+@layer components {
+  /* Clean white card used across all sections */
+  .card {
+    @apply bg-surface border border-slate-200 rounded-2xl shadow-card transition-all duration-200;
   }
 
-  .neon-glow-blue {
-    box-shadow: 0 0 10px rgba(0, 102, 255, 0.5), 0 0 20px rgba(0, 102, 255, 0.3), 0 0 40px rgba(0, 102, 255, 0.1);
+  .card-hover:hover {
+    @apply shadow-card-hover border-slate-300 -translate-y-1;
   }
 
-  .neon-glow-purple {
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.1);
+  /* Consistent section container */
+  .section {
+    @apply max-w-6xl mx-auto px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply inline-block text-secondary text-xs font-semibold tracking-[0.2em] uppercase mb-3;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-primary tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-slate-500 text-base md:text-lg leading-relaxed max-w-2xl;
   }
 }
