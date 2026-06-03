@@ -4,6 +4,7 @@ import dhanushriImg from '../assets/dhanushri.jpeg';
 import joseImg from '../assets/Josh.jpg';
 import muthusamyImg from '../assets/muthusamy.jpg';
 import gajendranImg from '../assets/gajendran.jpg';
+import dillibabuImg from '../assets/dillibabu.jpeg';
 
 export const members = [
   {
@@ -43,6 +44,7 @@ export const guide = {
   name: 'Mr. Dilli Babu K',
   role: 'Assistant Professor, Department of CSE',
   organization: 'Rathinam Technical Campus',
+  image: dillibabuImg,
 };
 
 export const mentors = [
