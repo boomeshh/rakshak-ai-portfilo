@@ -10,33 +10,32 @@ export const members = [
     id: 'boomesh',
     name: 'Boomesh R',
     role: 'Team Lead',
+    organization: 'Project Architecture & Development',
     image: boomeshImg,
-    linkedin: '#',
-    github: '#',
+    linkedin: 'https://www.linkedin.com/in/boomesh/',
+    github: 'https://github.com/boomeshh',
   },
   {
     id: 'megasri',
     name: 'Megasri R',
-    role: 'Frontend Developer',
+    organization: 'Project Documentation Coordinator',
     image: megasriImg,
-    linkedin: '#',
-    github: '#',
+    linkedin: 'https://www.linkedin.com/in/megasri-ramasamy-228209384/',
   },
   {
     id: 'dhanushri',
     name: 'Dhanushri R',
-    role: 'AI/ML Engineer',
+    organization: 'Project Research & Coordination',
     image: dhanushriImg,
-    linkedin: '#',
-    github: '#',
+    linkedin: 'https://www.linkedin.com/in/dhanu-shri-04b064384/',
   },
   {
     id: 'jose',
     name: 'Jose Georgesam E',
     role: 'Backend Developer',
+    organization: 'Testing & Validation',
     image: joseImg,
-    linkedin: '#',
-    github: '#',
+    linkedin: 'https://www.linkedin.com/in/jose-georgesam-147061384/',
   },
 ];
 
@@ -44,7 +43,6 @@ export const guide = {
   name: 'Mr. Dilli Babu K',
   role: 'Assistant Professor, Department of CSE',
   organization: 'Rathinam Technical Campus',
-  linkedin: '#',
 };
 
 export const mentors = [
@@ -55,7 +53,7 @@ export const mentors = [
     organization: 'Rathinam Technical Campus',
     image: muthusamyImg,
     accent: 'cyan',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/muthusamy-k-a7ba161b6/',
   },
   {
     id: 'gajendran',
@@ -64,6 +62,6 @@ export const mentors = [
     organization: 'Rathinam Technical Campus',
     image: gajendranImg,
     accent: 'purple',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/er-gajendran-parthasarathi-9689a2109/',
   },
 ];

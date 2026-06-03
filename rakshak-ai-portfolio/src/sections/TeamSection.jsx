@@ -40,6 +40,7 @@ const TeamSection = () => {
               key={member.id}
               name={member.name}
               role={member.role}
+              organization={member.organization}
               image={member.image}
               linkedin={member.linkedin}
               github={member.github}

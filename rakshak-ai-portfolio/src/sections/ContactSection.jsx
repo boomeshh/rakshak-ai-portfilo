@@ -5,22 +5,19 @@
 
 import { motion } from 'framer-motion';
 import { Mail, Building2, ShieldCheck } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '../components/BrandIcons';
+import { GithubIcon } from '../components/BrandIcons';
 import { fadeInUp, staggerContainer } from '../animations/variants';
 
-// Placeholder contact details — replace with the project's real links.
 const CONTACT = {
-  email: 'contact@rakshak-ai.example',
-  github: 'https://github.com/your-org/rakshak-ai',
-  linkedin: 'https://www.linkedin.com/',
+  email: 'rakshakai.admin@gmail.com',
+  github: 'https://github.com/boomeshh/ai-cyber-safety-portal-defence',
 };
 
 const detailItems = [
   { icon: ShieldCheck, label: 'Project', value: 'RAKSHAK AI' },
   { icon: Building2, label: 'Organization', value: 'Rathinam Technical Campus' },
   { icon: Mail, label: 'Email', value: CONTACT.email, href: `mailto:${CONTACT.email}` },
-  { icon: GithubIcon, label: 'GitHub', value: 'github.com/your-org/rakshak-ai', href: CONTACT.github },
-  { icon: LinkedinIcon, label: 'LinkedIn', value: 'linkedin.com/in/your-team', href: CONTACT.linkedin },
+  { icon: GithubIcon, label: 'GitHub', value: 'github.com/boomeshh/ai-cyber-safety-portal-defence', href: CONTACT.github },
 ];
 
 const ContactSection = () => {
