@@ -33,7 +33,7 @@ export const members = [
   {
     id: 'jose',
     name: 'Jose Georgesam E',
-    role: 'Backend Developer',
+    role: 'AI / ML Developer',
     organization: 'Testing & Validation',
     image: joseImg,
     linkedin: 'https://www.linkedin.com/in/jose-georgesam-147061384/',
